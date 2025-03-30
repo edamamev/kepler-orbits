@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdhvqrypfo47o"]
+
+[ext_resource type="Script" uid="uid://h47j13g4hqjq" path="res://spars.gd" id="1_3r0ir"]
+[ext_resource type="PackedScene" uid="uid://dgtndca55o18u" path="res://orbit_manager.tscn" id="1_54ewa"]
+[ext_resource type="PackedScene" uid="uid://6ar4l0yiowa1" path="res://Ellipse.tscn" id="2_odyph"]
+
+[node name="Spars" type="Node2D"]
+script = ExtResource("1_3r0ir")
+
+[node name="Orbit Manager" parent="." instance=ExtResource("1_54ewa")]
+visible = false
+position = Vector2(584, 297)
+semi_major_axis = 150.0
+semi_minor_axis = 200.0
+eccentricity = 0.017
+use_eccentricity = true
+
+[node name="Elliptical_Orbit" parent="." instance=ExtResource("2_odyph")]
+position = Vector2(544, 242)
+semi_major_axis = 200.0
+eccentricity = 0.996
+use_eccentricity = true
+resolution = 10
+show_foci_1 = true
+show_foci_2 = true
+time_dilation = 44.435

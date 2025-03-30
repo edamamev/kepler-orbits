@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://6ar4l0yiowa1"]
+
+[ext_resource type="Script" uid="uid://cyhxdjpek2mdu" path="res://ellipse.gd" id="1_jbyoj"]
+[ext_resource type="Texture2D" uid="uid://d4ao202ymxntd" path="res://orbiting_body.png" id="2_6nw4o"]
+[ext_resource type="Script" uid="uid://cj8nor5q7ei6r" path="res://orbit_path.gd" id="2_qetbj"]
+
+[sub_resource type="Curve2D" id="Curve2D_jbyoj"]
+
+[node name="Elliptical_Orbit" type="Node2D"]
+script = ExtResource("1_jbyoj")
+orbital_period = 600.0
+time_dilation = 50.0
+
+[node name="Line2D" type="Line2D" parent="."]
+closed = true
+width = 1.0
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_jbyoj")
+
+[node name="OrbitPath" type="PathFollow2D" parent="Path2D"]
+script = ExtResource("2_qetbj")
+
+[node name="OrbitingBody" type="Node2D" parent="Path2D/OrbitPath"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/OrbitPath/OrbitingBody"]
+texture = ExtResource("2_6nw4o")
+
+[node name="Foci1" type="Sprite2D" parent="."]
+
+[node name="Foci2" type="Sprite2D" parent="."]
+
+[connection signal="send_point_info_to_orbit" from="." to="Path2D/OrbitPath" method="_on_elliptical_orbit_send_point_info_to_orbit"]

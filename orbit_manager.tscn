@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgtndca55o18u"]
+
+[ext_resource type="Script" uid="uid://d2ndojodb2aah" path="res://orbit_manager.gd" id="1_i16bn"]
+
+[sub_resource type="Curve2D" id="Curve2D_j0opo"]
+
+[node name="Orbit Manager" type="Node2D"]
+script = ExtResource("1_i16bn")
+semi_major_axis = 500.0
+semi_minor_axis = 400.0
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_j0opo")
+
+[node name="Line2D" type="Line2D" parent="."]
+closed = true
+width = 5.0
+
+[node name="Foci1" type="Sprite2D" parent="."]
+
+[node name="Foci2" type="Sprite2D" parent="."]
